@@ -17,60 +17,64 @@
         <HBox>
             <HBox>
                 <Label text="ID: "/>
-                <TextField/>
+                <TextField fx:id="idLabel"/>
             </HBox>
             <HBox>
                 <Label text="Type: "/>
-                <TextField/>
+                <TextField fx:id="typeLabel"/>
             </HBox>
             <HBox>
                 <Label text="Title: "/>
-                <TextField/>
+                <TextField fx:id="titleLabel"/>
             </HBox>
         </HBox>
 
         <HBox>
             <HBox>
                 <Label text="Description: "/>
-                <TextField/>
+                <TextField fx:id="descLabel"/>
             </HBox>
             <HBox>
                 <Label text="Notes: "/>
-                <TextField/>
+                <TextField fx:id="notesLabel"/>
             </HBox>
             <HBox>
                 <Label text="Date Ordered:"/>
-                <TextField/>
+                <TextField fx:id="ordDateLabel"/>
             </HBox>
         </HBox>
 
         <HBox>
             <HBox>
                 <Label text="Expiry Date(s): "/>
-                <TextField/>
+                <TextField fx:id="expDateLabel"/>
             </HBox>
             <HBox>
                 <Label text="Date Acquired: "/>
-                <TextField/>
+                <TextField fx:id="acqDateLabel"/>
             </HBox>
             <HBox>
                 <Label text="Precautions/Safety: "/>
-                <TextField/>
+                <TextField fx:id="precLabel"/>
             </HBox>
         </HBox>
 
         <HBox>
             <HBox>
                 <Label text="Usage/Labs: "/>
-                <TextField/>
+                <TextField fx:id="useLabel"/>
             </HBox>
             <HBox>
                 <Label text="Department(s): "/>
-                <TextField/>
+                <TextField fx:id="depsLabel"/>
+            </HBox>
+            <HBox>
+                <Label text="Quantity: "/>
+                <TextField fx:id="quanLabel"/>
             </HBox>
         </HBox>
 
-        <Button text="Enter Data to Chemventory" />
+        <Button text="Enter Data to Chemventory" onAction="#onEnterData" />
 
         <VBox alignment="CENTER" spacing="20" id="textAreaBox">
             <TextArea fx:id="inventoryOutput" minHeight="500"/>
