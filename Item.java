@@ -23,6 +23,4 @@ public class Item {
           usage=_usage;
           dept=_dept;
           quantity=_quantity;
-}
-      
-}
+}}
