@@ -7,12 +7,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ListView?>
 <VBox fx:controller="sample.Controller"
       xmlns:fx="http://javafx.com/fxml" alignment="center">
     <VBox>
 
-        <Label text="Search for an Item: "/>
-        <TextField/>
+        <HBox>
+            <Label text="Search for an Item: "/>
+            <TextField/>
+        </HBox>
+
+        <Button text="Search" onAction="#onSearchItem"/>
+
 
         <HBox>
             <HBox>
@@ -74,10 +80,14 @@
             </HBox>
         </HBox>
 
-        <Button text="Enter Data to Chemventory" onAction="#onEnterData" />
+        <HBox>
+            <Button text="Enter Data to Chemventory" onAction="#onEnterData" />
+        </HBox>
 
-        <VBox alignment="CENTER" spacing="20" id="textAreaBox">
-            <TextArea fx:id="inventoryOutput" minHeight="500"/>
+
+        <!--Tutor ListView Search Results-->
+        <VBox fx:id="listViewVBox">
+            <ListView fx:id="invListView" maxWidth="700" prefHeight="500" id="list-v"/>
         </VBox>
 
     </VBox>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<items>
+    <item>
+        <id>0</id>
+        <type>testobject</type>
+        <title>Test Object</title>
+        <description>This is a test description</description>
+        <notes>This is a test note</notes>
+        <orderDate>1/1/20</orderDate>
+        <expiryDate>2/1/20</expiryDate>
+        <acqDate>1/1/20</acqDate>
+        <usage>Usage includes for test</usage>
+        <departments>Chemistry</departments>
+        <quantity>12</quantity>
+    </item>
+    <item>
+        <id>0</id>
+        <type>testobject</type>
+        <title>Test Object</title>
+        <description>This is a test description</description>
+        <notes>This is a test note</notes>
+        <orderDate>1/1/20</orderDate>
+        <expiryDate>2/1/20</expiryDate>
+        <acqDate>1/1/20</acqDate>
+        <usage>Usage includes for test</usage>
+        <departments>Chemistry</departments>
+        <quantity>12</quantity>
+    </item>
+</items>
+
