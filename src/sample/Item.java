@@ -7,6 +7,10 @@
 package sample;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Item {
       String ID, type, title, description, notes, dateOrdered, expiryDate, dateAcq, prec, usage, dept, quantity;//values from main document/data collection
       boolean isExpiring=false,lowStock=false;
@@ -29,4 +33,24 @@ public class Item {
       public String getViewString(){
           return title + " | " + ID + " | " + description + " | " + quantity;
       }
+
+
+      public String isExpired(String expiryDate) throws ParseException {
+          //Calculate Expiration
+          String answer =" ";
+          SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+          Date expiry = formatter.parse(expiryDate);
+          Date currentDate = new Date();
+
+          double diff = expiry.getTime()- currentDate.getTime();
+          diff =diff/86400000;
+
+          if (expiry.compareTo(currentDate)<0){
+              answer= "Product Expired";
+          }else if(diff<=7){
+              answer= "Expiring in "+diff+" days";
+          }
+            return answer;
+    }
+
 }
