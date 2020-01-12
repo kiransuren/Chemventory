@@ -4,18 +4,27 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ListView?>
-<VBox fx:controller="sample.Controller"
-      xmlns:fx="http://javafx.com/fxml" alignment="center">
-    <VBox>
+<VBox fx:controller="sample.mainScreenController"
+      xmlns:fx="http://javafx.com/fxml" alignment="center" stylesheets="@style.css">
 
-        <HBox>
-            <Label text="Search for an Item: "/>
-            <TextField/>
+    <Label text="Chemventory: The Science Inventory Database" id="main-title"/>
+
+    <VBox alignment="CENTER" spacing="50">
+        <HBox alignment="CENTER" spacing="50">
+            <TextField minWidth="500"/>
+            <Button text="Search" onAction="#onSearchItem"/>
         </HBox>
 
-        <Button text="Search" onAction="#onSearchItem"/>
+        <!--Tutor ListView Search Results-->
+        <VBox fx:id="listViewVBox" alignment="CENTER" spacing="10">
+            <ListView fx:id="invListView" maxWidth="700" prefHeight="400" id="list-v"/>
+            <Button text="Add a new item" onAction="#onNewItem" fx:id="newItem" />
+        </VBox>
 
 
+    </VBox>
+
+        <!--ADD NEW ITEM : UNDER MAINTENANCE
         <HBox>
             <HBox>
                 <Label text="ID: "/>
@@ -79,12 +88,5 @@
         <HBox>
             <Button text="Enter Data to Chemventory" onAction="#onEnterData" />
         </HBox>
-
-
-        <!--Tutor ListView Search Results-->
-        <VBox fx:id="listViewVBox">
-            <ListView fx:id="invListView" maxWidth="700" prefHeight="500" id="list-v"/>
-        </VBox>
-
-    </VBox>
+        -->
 </VBox>

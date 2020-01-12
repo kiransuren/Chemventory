@@ -1,0 +1,16 @@
+.root{
+    /*-fx-background-color: #3E909E;*/
+    -fx-background-color: #F3F2F3;
+    -fx-font-family: "Helvetica";
+    -fx-text-fill: black;
+    -fx-font-size: 12pt;
+}
+
+#main-title{
+    -fx-font-size: 26pt;
+    -fx-padding: 50px;
+}
+
+#newitem-hbox{
+    -fx-padding: 100px;
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.newItemController" stylesheets="@style.css">
+
+    <HBox alignment="CENTER" spacing="70" id="newitem-hbox">
+        <VBox spacing="60">
+            <HBox>
+                <Label text="ID:                 "/>
+                <TextField fx:id="idLabel"/>
+            </HBox>
+            <HBox>
+                <Label text="Type:               "/>
+                <TextField fx:id="typeLabel"/>
+            </HBox>
+            <HBox>
+                <Label text="Title:              "/>
+                <TextField fx:id="titleLabel"/>
+            </HBox>
+
+            <HBox>
+                <Label text="Description:        "/>
+                <TextField fx:id="descLabel"/>
+            </HBox>
+            <HBox>
+                <Label text="Notes:              "/>
+                <TextField fx:id="notesLabel"/>
+            </HBox>
+            <HBox>
+                <Label text="Date Ordered:       "/>
+                <TextField fx:id="ordDateLabel"/>
+            </HBox>
+        </VBox>
+
+        <VBox spacing="60">
+            <HBox>
+                <Label text="Expiry Date(s):     "/>
+                <TextField fx:id="expDateLabel"/>
+            </HBox>
+            <HBox>
+                <Label text="Date Acquired:      "/>
+                <TextField fx:id="acqDateLabel"/>
+            </HBox>
+            <HBox>
+                <Label text="Precautions/Safety: "/>
+                <TextField fx:id="precLabel"/>
+            </HBox>
+            <HBox>
+                <Label text="Usage/Labs:         "/>
+                <TextField fx:id="useLabel"/>
+            </HBox>
+            <HBox>
+                <Label text="Department(s):      "/>
+                <TextField fx:id="depsLabel"/>
+            </HBox>
+            <HBox>
+                <Label text="Quantity:           "/>
+                <TextField fx:id="quanLabel"/>
+            </HBox>
+        </VBox>
+    </HBox>
+
+    <HBox alignment="CENTER">
+        <Button text="Enter Data to Chemventory" onAction="#onEnterData" fx:id="enterDataButton"/>
+    </HBox>
+
+</VBox>

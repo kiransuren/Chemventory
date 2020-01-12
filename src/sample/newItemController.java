@@ -1,7 +1,11 @@
 package sample;
 
-import javafx.scene.control.ListView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -14,35 +18,59 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/*
-    TODO:
-
- */
-
-public class Controller {
-
-    final int ITEM_PROPS = 11;
+public class newItemController {
 
     public TextField idLabel, typeLabel, titleLabel, descLabel, notesLabel, ordDateLabel, expDateLabel, acqDateLabel, precLabel, useLabel, depsLabel, quanLabel;
-    public ListView invListView;
+    public Button enterDataButton;
     ArrayList<Item> itemArr = new ArrayList<>();
 
+
     public void onEnterData(){
+        setItemArray(parseFileToArr());
         createItem();
-        System.out.println(itemArr.get(0));
         updateXML();
         resetLocalArray();
-        setItemArray(parseFileToArr());
+
+        try {
+            Stage stage = (Stage) enterDataButton.getScene().getWindow();                          //Get current scene and window
+            Parent root = FXMLLoader.load(getClass().getResource("mainScreen.fxml"));      //Set root to newItem.fxml
+            //Set scene and show new scene
+            Scene scene = new Scene(root, 1200, 800);           //Create new scene with root
+            stage.setScene(scene);                                            //Set stage with new scene
+            stage.show();                                                     //Show stage
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
-    public void resetLocalArray(){
-        itemArr.clear();
+    public void createItem(){
+        /*
+          Fetch item data from textfields and add new item to itemArr array
+        */
+
+        //Fetch Entered Item Data from textfields
+        String id = Integer.toString(Integer.parseInt(idLabel.getText()));
+        String type = typeLabel.getText();
+        String title = titleLabel.getText();
+        String description = descLabel.getText();
+        String notes = notesLabel.getText();
+        String orderDate = ordDateLabel.getText();
+        String expiryDate = expDateLabel.getText();
+        String acqDate = acqDateLabel.getText();
+        String precautions = precLabel.getText();
+        String usage = useLabel.getText();
+        String departments = depsLabel.getText();
+        String quantity = quanLabel.getText();
+
+        //Create temporary Item object and initialize properties
+        Item temp = new Item(id,type, title, description, notes, orderDate, expiryDate, acqDate, precautions, usage, departments, quantity);
+        itemArr.add(temp);
     }
 
     public void updateXML(){
@@ -137,6 +165,10 @@ public class Controller {
         }
     }
 
+    public void resetLocalArray(){
+        itemArr.clear();
+    }
+
     public Item[] parseFileToArr(){
         //Creating new document for DOM manipulation
         String filePath = "saved_data/inventory.xml";
@@ -186,13 +218,6 @@ public class Controller {
 
     }
 
-
-    public void onSearchItem(){
-        setItemArray(parseFileToArr());
-        displayItems();
-
-    }
-
     public void setItemArray(Item[] arr){
         resetLocalArray();
         for(int i=0; i<arr.length; i++){
@@ -200,44 +225,7 @@ public class Controller {
         }
     }
 
-    public void displayItems(){
-        /*
-           Current usage: Show all Items in itemArr on TextArea
-           TODO:
-           -Add filter feature
-         */
 
-        invListView.getItems().clear();                                     //Clear items from ListView
-        for(int i=0; i < itemArr.size(); i++){                                  //Loops through each entry in the array and creates a string with data from the i-th entry (concatenation)
-            String itemString = itemArr.get(i).getViewString();                 //Gets string of class data
-            invListView.getItems().add(itemString);
-        }
 
-    }
 
-    public void createItem(){
-        /*
-          Fetch item data from textfields and add new item to itemArr array
-        */
-
-        //Fetch Entered Item Data from textfields
-        String id = Integer.toString(Integer.parseInt(idLabel.getText()));
-        String type = typeLabel.getText();
-        String title = titleLabel.getText();
-        String description = descLabel.getText();
-        String notes = notesLabel.getText();
-        String orderDate = ordDateLabel.getText();
-        String expiryDate = expDateLabel.getText();
-        String acqDate = acqDateLabel.getText();
-        String precautions = precLabel.getText();
-        String usage = useLabel.getText();
-        String departments = depsLabel.getText();
-        String quantity = quanLabel.getText();
-
-        //Create temporary Item object and initialize properties
-        Item temp = new Item(id,type, title, description, notes, orderDate, expiryDate, acqDate, precautions, usage, departments, quantity);
-        //Add Item object to itemArr array
-        itemArr.add(temp);
-
-    }
 }
