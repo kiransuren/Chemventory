@@ -15,6 +15,7 @@
         <HBox alignment="CENTER" spacing="50">
             <TextField fx:id="searchBar" minWidth="500"/>
             <Button text="Search" onAction="#onSearchItem"/>
+            <!--<Button text="Search" onAction="#">-->
             <ComboBox fx:id="filterComboBox">
                 <value>
                     <String fx:value="Filter by ID"/>

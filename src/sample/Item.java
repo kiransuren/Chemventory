@@ -52,5 +52,17 @@ public class Item {
           }
             return answer;
     }
+      public String lowQuant(String quantity) {//if quantity < 3, notify
+          String r = " ";
+          try {
+              int q = Integer.parseInt(quantity);
+              if (q <= 3) {
+                  r = "Low stock, only " + q + "left";
+              }
+          } catch (Exception e) {
 
+
+          }
+          return r;
+      }
 }

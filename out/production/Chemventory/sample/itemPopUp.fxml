@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox alignment="center" prefWidth="500" prefHeight="720" stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.ItemPopUpController">
+    <Label alignment="TOP_CENTER" id="main-title" text="Product Information" />
+    <VBox alignment="CENTER" spacing="30">
+        <HBox alignment="CENTER" >
+            <TableView fx:id="tableView" prefHeight="500" prefWidth="450">
+                <columns>
+                    <TableColumn prefWidth="100" text="Property" fx:id="propColm" />
+                    <TableColumn prefWidth="400" text="Information" fx:id="infoColm" />
+                </columns>
+            </TableView>
+        </HBox>
+        <HBox alignment="CENTER" spacing="30">
+            <Button fx:id="editButton" onAction="#editButton" text="Edit"/>
+            <Button fx:id="removeButton" onAction="#removeButton" text="Remove"/>
+        </HBox>
+    </VBox>
+</VBox>
