@@ -1,9 +1,12 @@
 package sample;
 
+
+//IMPORTS
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -15,28 +18,40 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /*
     TODO:
 
  */
 
+enum Filter{
+    ID, TYPE, TITLE, USAGE, DEPTS
+}
+
 public class mainScreenController {
 
     final int ITEM_PROPS = 11;
 
-    public TextField idLabel, typeLabel, titleLabel, descLabel, notesLabel, ordDateLabel, expDateLabel, acqDateLabel, precLabel, useLabel, depsLabel, quanLabel;
     public ListView invListView;
+    public TextField searchBar;
     public Button newItem;
+    public ComboBox filterComboBox;
     ArrayList<Item> itemArr = new ArrayList<>();
+
+
+    public void initialize(){
+        ArrayList<String> clist = new ArrayList<>();                                                          //Create ArrayList with all filters
+        Collections.addAll(clist,"Filter by ID", "Filter by TYPE", "Filter by TITLE", "Filter by USAGE/LABS", "Filter by DEPARTMENT");
+        //Add filters to combo box
+        for(int i=0; i <clist.size(); i++){
+            filterComboBox.getItems().add(clist.get(i));
+        }
+    }
 
     public void onNewItem(){
         try {
@@ -58,7 +73,7 @@ public class mainScreenController {
 
     public void onSearchItem(){
         setItemArray(parseFileToArr());
-        displayItems();
+        displayItems(filterArray(searchBar.getText().toLowerCase(), getFilter()));
     }
 
     public Item[] parseFileToArr(){
@@ -117,16 +132,75 @@ public class mainScreenController {
         }
     }
 
-    public void displayItems(){
-        /*
-           Current usage: Show all Items in itemArr on TextArea
-           TODO:
-           -Add filter feature
-         */
+    public Filter getFilter(){
+        String f = filterComboBox.getValue().toString();
+        switch (f){
+            case "Filter by ID":
+                return Filter.ID;
+            case "Filter by TYPE":
+                return Filter.TYPE;
+            case "Filter by TITLE":
+                return Filter.TITLE;
+            case "Filter by USAGE/LABS":
+                return Filter.USAGE;
+            case "Filter by DEPARTMENT":
+                return Filter.DEPTS;
+            default:
+                return Filter.ID;
+        }
 
+    }
+
+    public ArrayList<Item> filterArray(String search, Filter filter){
+        ArrayList<Item> arr = new ArrayList<>();
+        switch (filter){
+            case ID:
+                for(int i=0; i < itemArr.size(); i++ ){
+                    if(itemArr.get(i).ID.toLowerCase().contains(search)){
+                        arr.add(itemArr.get(i));
+                    }
+                }
+                break;
+            case TYPE:
+                for(int i=0; i < itemArr.size(); i++ ){
+                    if(itemArr.get(i).type.toLowerCase().contains(search)){
+                        arr.add(itemArr.get(i));
+                    }
+                }
+                break;
+            case TITLE:
+                for(int i=0; i < itemArr.size(); i++ ){
+                    if(itemArr.get(i).title.toLowerCase().contains(search)){
+                        arr.add(itemArr.get(i));
+                    }
+                }
+                break;
+            case USAGE:
+                for(int i=0; i < itemArr.size(); i++ ){
+                    if(itemArr.get(i).usage.toLowerCase().contains(search)){
+                        arr.add(itemArr.get(i));
+                    }
+                }
+                break;
+            case DEPTS:
+                for(int i=0; i < itemArr.size(); i++ ){
+                    if(itemArr.get(i).dept.toLowerCase().contains(search)){
+                        arr.add(itemArr.get(i));
+                    }
+                }
+                break;
+        }
+
+        return arr;
+    }
+
+    public void displayItems(ArrayList<Item> arr){
+        /*
+           Current usage: Show all Items in parsed arr on TextArea
+         */
         invListView.getItems().clear();                                     //Clear items from ListView
-        for(int i=0; i < itemArr.size(); i++){                                  //Loops through each entry in the array and creates a string with data from the i-th entry (concatenation)
-            String itemString = itemArr.get(i).getViewString();                 //Gets string of class data
+        for(int i=0; i < arr.size(); i++){                                  //Loops through each entry in the array and creates a string with data from the i-th entry (concatenation)
+            String itemString = arr.get(i).getViewString();                 //Gets string of class data
             invListView.getItems().add(itemString);
         }
 
