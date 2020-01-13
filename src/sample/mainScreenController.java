@@ -2,6 +2,7 @@ package sample;
 
 
 //IMPORTS
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,6 +19,10 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,6 +47,7 @@ public class mainScreenController {
     public Button newItem;
     public ComboBox filterComboBox;
     ArrayList<Item> itemArr = new ArrayList<>();
+    ArrayList<Item> filterArr = new ArrayList<>();
 
 
     public void initialize(){
@@ -73,7 +79,8 @@ public class mainScreenController {
 
     public void onSearchItem(){
         setItemArray(parseFileToArr());
-        displayItems(filterArray(searchBar.getText().toLowerCase(), getFilter()));
+        filterArr = filterArray(searchBar.getText().toLowerCase(), getFilter());
+        displayItems(filterArr);
     }
 
     public Item[] parseFileToArr(){
@@ -204,6 +211,113 @@ public class mainScreenController {
             invListView.getItems().add(itemString);
         }
 
+    }
+
+    @FXML
+    public void handleClickListView(){
+        System.out.println("POOPS");
+        if(invListView.getSelectionModel().getSelectedItem() != null) {
+            System.out.println(invListView.getSelectionModel().getSelectedItem().toString());
+            int indexOfItem = invListView.getSelectionModel().getSelectedIndex();
+            saveCurrentItemXML(filterArr.get(indexOfItem));
+            try {
+                Stage stage = (Stage) newItem.getScene().getWindow();                          //Get current scene and window
+                Parent root = FXMLLoader.load(getClass().getResource("itemPopUp.fxml"));      //Set root to newItem.fxml
+                //Set scene and show new scene
+                Scene scene = new Scene(root, 1200, 800);           //Create new scene with root
+                stage.setScene(scene);                                            //Set stage with new scene
+                stage.show();                                                     //Show stage
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    public void saveCurrentItemXML(Item cItem){
+        try {
+            try{
+
+                File file = new File("saved_data/current_item.xml");
+
+                if(file.delete()){
+                    System.out.println(file.getName() + " is deleted!");
+                }else{
+                    System.out.println("Delete operation is failed.");
+                }
+
+            }catch(Exception e){
+
+                e.printStackTrace();
+
+            }
+
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.newDocument();
+            Element curr = doc.createElement("current");
+            doc.appendChild(curr);
+
+
+            Element id = doc.createElement("id");
+            id.setTextContent(cItem.ID);
+            curr.appendChild(id);
+
+
+            Element type = doc.createElement("type");
+            type.setTextContent(cItem.type);
+            curr.appendChild(type);
+
+            Element title = doc.createElement("title");
+            title.setTextContent(cItem.title);
+            curr.appendChild(title);
+
+            Element description = doc.createElement("description");
+            description.setTextContent(cItem.description);
+            curr.appendChild(description);
+
+            Element notes = doc.createElement("notes");
+            notes.setTextContent(cItem.notes);
+            curr.appendChild(notes);
+
+            Element orderDate = doc.createElement("orderDate");
+            orderDate.setTextContent(cItem.dateOrdered);
+            curr.appendChild(orderDate);
+
+            Element expiryDate = doc.createElement("expiryDate");
+            expiryDate.setTextContent(cItem.expiryDate);
+            curr.appendChild(expiryDate);
+
+            Element acqDate = doc.createElement("acqDate");
+            acqDate.setTextContent(cItem.dateAcq);
+            curr.appendChild(acqDate);
+
+            Element precautions = doc.createElement("precautions");
+            precautions.setTextContent(cItem.prec);
+            curr.appendChild(precautions);
+
+            Element usage = doc.createElement("usage");
+            usage.setTextContent(cItem.usage);
+            curr.appendChild(usage);
+
+            Element departments = doc.createElement("departments");
+            departments.setTextContent(cItem.dept);
+            curr.appendChild(departments);
+
+            Element quantity = doc.createElement("quantity");
+            quantity.setTextContent(cItem.quantity);
+            curr.appendChild(quantity);
+
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(new File("saved_data/current_item.xml"));
+            transformer.transform(source, result);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

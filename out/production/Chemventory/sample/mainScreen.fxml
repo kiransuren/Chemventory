@@ -24,7 +24,7 @@
 
         <!--Tutor ListView Search Results-->
         <VBox fx:id="listViewVBox" alignment="CENTER" spacing="10">
-            <ListView fx:id="invListView" maxWidth="700" prefHeight="400" id="list-v"/>
+            <ListView fx:id="invListView" maxWidth="700" prefHeight="400" id="list-v" onMouseClicked="#handleClickListView"/>
             <Button text="Add a new item" onAction="#onNewItem" fx:id="newItem" />
         </VBox>
 
