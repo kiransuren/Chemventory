@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class newItemController {
 
     public TextField idLabel, typeLabel, titleLabel, descLabel, notesLabel, ordDateLabel, expDateLabel, acqDateLabel, precLabel, useLabel, depsLabel, quanLabel;
-    public Button enterDataButton;
+    public Button enterDataButton, backButton;
     ArrayList<Item> itemArr = new ArrayList<>();
 
 
@@ -223,6 +223,21 @@ public class newItemController {
         for(int i=0; i<arr.length; i++){
             itemArr.add(arr[i]);
         }
+    }
+
+    public void backToMain(){
+        try {
+            Stage stage = (Stage) backButton.getScene().getWindow();                          //Get current scene and window
+            Parent root = FXMLLoader.load(getClass().getResource("mainScreen.fxml"));      //Set root to newItem.fxml
+            //Set scene and show new scene
+            Scene scene = new Scene(root, 1200, 800);           //Create new scene with root
+            stage.setScene(scene);                                            //Set stage with new scene
+            stage.show();                                                     //Show stage
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 

@@ -63,8 +63,9 @@
         </VBox>
     </HBox>
 
-    <HBox alignment="CENTER">
+    <HBox alignment="CENTER" spacing="100">
         <Button text="Enter Data to Chemventory" onAction="#onEnterData" fx:id="enterDataButton"/>
+        <Button fx:id="backButton" onAction="#backToMain" text="Back"/>
     </HBox>
 
 </VBox>

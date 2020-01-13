@@ -7,7 +7,7 @@
     <Label alignment="TOP_CENTER" id="main-title" text="Product Information" />
     <VBox alignment="CENTER" spacing="30">
         <HBox alignment="CENTER" >
-            <TableView fx:id="tableView" prefHeight="500" prefWidth="450">
+            <TableView editable="true" fx:id="tableView" prefHeight="500" prefWidth="450">
                 <columns>
                     <TableColumn prefWidth="100" text="Property" fx:id="propColm" />
                     <TableColumn prefWidth="400" text="Information" fx:id="infoColm" />
@@ -17,6 +17,7 @@
         <HBox alignment="CENTER" spacing="30">
             <Button fx:id="editButton" onAction="#editButton" text="Edit"/>
             <Button fx:id="removeButton" onAction="#removeButton" text="Remove"/>
+            <Button fx:id="backButton" onAction="#backToMain" text="Back"/>
         </HBox>
     </VBox>
 </VBox>
