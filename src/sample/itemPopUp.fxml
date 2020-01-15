@@ -7,10 +7,10 @@
     <Label alignment="TOP_CENTER" id="main-title" text="Product Information" />
     <VBox alignment="CENTER" spacing="30">
         <HBox alignment="CENTER" >
-            <TableView editable="true" fx:id="tableView" prefHeight="500" prefWidth="450">
+            <TableView fx:id="tableView" prefHeight="500" prefWidth="700">
                 <columns>
-                    <TableColumn prefWidth="100" text="Property" fx:id="propColm" />
-                    <TableColumn prefWidth="400" text="Information" fx:id="infoColm" />
+                    <TableColumn prefWidth="200" text="Property" fx:id="propColm"/>
+                    <TableColumn prefWidth="500" text="Information" fx:id="infoColm" />
                 </columns>
             </TableView>
         </HBox>
