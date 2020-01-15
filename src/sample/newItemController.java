@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.w3c.dom.Document;
@@ -20,44 +21,49 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class newItemController {
 
     public TextField idLabel, typeLabel, titleLabel, descLabel, notesLabel, ordDateLabel, expDateLabel, acqDateLabel, precLabel, useLabel, depsLabel, quanLabel;
     public Button enterDataButton, backButton;
+    public Label errorLabel;
     ArrayList<Item> itemArr = new ArrayList<>();
 
 
     public void onEnterData(){
         setItemArray(parseFileToArr());
-        createItem();
-        updateXML();
-        resetLocalArray();
+        boolean itemCreated = createItem();
+        if(itemCreated) {
+            updateXML();
+            resetLocalArray();
+            try {
+                Stage stage = (Stage) enterDataButton.getScene().getWindow();                          //Get current scene and window
+                Parent root = FXMLLoader.load(getClass().getResource("mainScreen.fxml"));      //Set root to newItem.fxml
+                //Set scene and show new scene
+                Scene scene = new Scene(root, 1200, 800);           //Create new scene with root
+                stage.setScene(scene);                                            //Set stage with new scene
+                stage.show();                                                     //Show stage
 
-        try {
-            Stage stage = (Stage) enterDataButton.getScene().getWindow();                          //Get current scene and window
-            Parent root = FXMLLoader.load(getClass().getResource("mainScreen.fxml"));      //Set root to newItem.fxml
-            //Set scene and show new scene
-            Scene scene = new Scene(root, 1200, 800);           //Create new scene with root
-            stage.setScene(scene);                                            //Set stage with new scene
-            stage.show();                                                     //Show stage
-
-        }catch (Exception e){
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }
 
-    public void createItem(){
+    public boolean createItem(){
         /*
           Fetch item data from textfields and add new item to itemArr array
         */
 
         //Fetch Entered Item Data from textfields
-        String id = Integer.toString(Integer.parseInt(idLabel.getText()));
+        /*String id = Integer.toString(Integer.parseInt(idLabel.getText()))*/
+        String id = idLabel.getText();                                  //YES
         String type = typeLabel.getText();
-        String title = titleLabel.getText();
+        String title = titleLabel.getText();                            //YES
         String description = descLabel.getText();
         String notes = notesLabel.getText();
         String orderDate = ordDateLabel.getText();
@@ -68,10 +74,65 @@ public class newItemController {
         String departments = depsLabel.getText();
         String quantity = quanLabel.getText();
 
-        //Create temporary Item object and initialize properties
-        Item temp = new Item(id,type, title, description, notes, orderDate, expiryDate, acqDate, precautions, usage, departments, quantity);
-        itemArr.add(temp);
+        if(!title.isEmpty()){
+            if(isValidID(id) && isValidExpiry(expiryDate)){
+                //Create temporary Item object and initialize properties
+                Item temp = new Item(id,type, title, description, notes, orderDate, expiryDate, acqDate, precautions, usage, departments, quantity);
+                itemArr.add(temp);
+                return true;
+            }else if(!isValidID(id)){
+                errorLabel.setText("Please enter a unique integer for the ID value");
+                System.out.println("Please enter a unique integer for the ID value");
+            }else if(!isValidExpiry(expiryDate)){
+                errorLabel.setText("Please enter the expiry date in the following format: dd/MM/yyyy | For no date type: none");
+                System.out.println("Please enter the expiry date in the following format: dd/MM/yyyy | For no date type: none");
+            }
+            else{
+                errorLabel.setText("Please enter valid data");
+            }
+            return false;
+        }else{
+            errorLabel.setText("Please enter a title for the item");
+            return false;
+        }
     }
+
+    public boolean isValidID(String id){
+        try {
+            int newID = Integer.parseInt(id);
+            if(newID >=0){
+                for (int i = 0; i < itemArr.size(); i++) {
+                    if (itemArr.get(i).ID.equals(id)) {
+                        System.out.println("NOT VALID ID");
+                        return false;
+                    }
+                }
+            }else{
+                System.out.println("NOT VALID ID");
+                return false;
+            }
+        }catch (Exception e){
+            System.out.println("NOT VALID ID");
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isValidExpiry(String expiryDate){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        if(expiryDate.equals("none")){
+            return true;
+        }else{
+            try{
+                Date expiry = formatter.parse(expiryDate);
+                return true;
+            }catch (Exception e){
+                return false;
+            }
+        }
+
+    }
+
 
     public void updateXML(){
         try {

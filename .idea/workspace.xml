@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="add remove item">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/ItemPopUpController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/ItemPopUpController$SingleItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chemventory/sample/ItemPopUpController$SingleItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/ItemPopUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chemventory/sample/ItemPopUpController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/itemPopUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chemventory/sample/itemPopUp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saved_data/current_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/saved_data/current_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/saved_data/inventory.xml" beforeDir="false" afterPath="$PROJECT_DIR$/saved_data/inventory.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ItemPopUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ItemPopUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/itemPopUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/itemPopUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/mainScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/mainScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/mainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/mainScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/newItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/newItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/newItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/newItemController.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,26 +78,28 @@
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="105" />
           <entry key="dummy" value="21" />
-          <entry key="fxml" value="1288" />
-          <entry key="java" value="7608" />
+          <entry key="fxml" value="1457" />
+          <entry key="java" value="10296" />
+          <entry key="txt" value="15" />
           <entry key="xml" value="351" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="105" />
-          <entry key="JAVA" value="7608" />
-          <entry key="PLAIN_TEXT" value="21" />
-          <entry key="XML" value="1639" />
+          <entry key="JAVA" value="10296" />
+          <entry key="PLAIN_TEXT" value="36" />
+          <entry key="XML" value="1808" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -108,16 +108,16 @@
           <entry key="css" value="1" />
           <entry key="current_item" value="1" />
           <entry key="fxml" value="6" />
-          <entry key="java" value="18" />
-          <entry key="xml" value="10" />
+          <entry key="java" value="19" />
+          <entry key="xml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="CSS" value="1" />
-          <entry key="JAVA" value="18" />
-          <entry key="XML" value="17" />
+          <entry key="JAVA" value="19" />
+          <entry key="XML" value="18" />
         </counts>
       </usages-collector>
     </session>
@@ -127,94 +127,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/mainScreenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="134" column="4" selection-start-line="134" selection-start-column="4" selection-end-line="139" selection-end-column="5" />
+            <state relative-caret-position="87">
+              <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
               <folding>
-                <element signature="method#initialize#0;class#mainScreenController#0" />
+                <element signature="method#updateExpiryArray#0;class#mainScreenController#0" />
                 <element signature="method#onNewItem#0;class#mainScreenController#0" />
-                <element signature="method#onSearchItem#0;class#mainScreenController#0" />
                 <element signature="method#parseFileToArr#0;class#mainScreenController#0" />
                 <element signature="method#setItemArray#0;class#mainScreenController#0" />
                 <element signature="method#getFilter#0;class#mainScreenController#0" />
                 <element signature="method#filterArray#0;class#mainScreenController#0" />
                 <element signature="method#displayItems#0;class#mainScreenController#0" />
                 <element signature="method#handleClickListView#0;class#mainScreenController#0" />
+                <element signature="method#saveCurrentItemXML#0;class#mainScreenController#0" />
+                <element signature="method#partition#0;class#mainScreenController#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/itemPopUp.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="5" selection-start-column="5" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/newItemController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="75" column="4" selection-start-line="75" selection-start-column="4" selection-end-line="165" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#onEnterData#0;class#newItemController#0" />
-                <element signature="method#createItem#0;class#newItemController#0" />
-                <element signature="method#updateXML#0;class#newItemController#0" />
-                <element signature="method#parseFileToArr#0;class#newItemController#0" />
-                <element signature="method#setItemArray#0;class#newItemController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/ItemPopUpController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="44" column="1" lean-forward="true" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
-              <folding>
-                <element signature="class#SingleItem#0;class#ItemPopUpController#0" />
-                <element signature="method#parseFileToArr#0;class#ItemPopUpController#0" />
-                <element signature="method#parseFileToDataList#0;class#ItemPopUpController#0" />
-                <element signature="method#removeButton#0;class#ItemPopUpController#0" />
-                <element signature="method#updateXML#0;class#ItemPopUpController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/mainScreen.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="82" lean-forward="true" selection-start-line="27" selection-start-column="82" selection-end-line="27" selection-end-column="82" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/newItem.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="56" column="46" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -222,12 +151,60 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Item.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+            <state relative-caret-position="-314">
+              <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
+                <element signature="e#2538#2539#0" expanded="true" />
+                <element signature="e#2623#2624#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/newItemController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-356">
+              <caret line="115" column="25" lean-forward="true" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#updateXML#0;class#newItemController#0" />
+                <element signature="e#7979#7980#0" expanded="true" />
+                <element signature="e#8010#8011#0" expanded="true" />
+                <element signature="method#parseFileToArr#0;class#newItemController#0" />
+                <element signature="method#setItemArray#0;class#newItemController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/mainScreen.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4">
+              <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/newItem.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="70" column="31" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="15" lean-forward="true" selection-start-column="15" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -256,20 +233,20 @@
         <option value="$PROJECT_DIR$/Item.java" />
         <option value="$PROJECT_DIR$/src/sample/inventory.xml" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
-        <option value="$PROJECT_DIR$/src/sample/Item.java" />
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/style.css" />
         <option value="$PROJECT_DIR$/src/module-info.java" />
-        <option value="$PROJECT_DIR$/src/sample/mainScreenController.java" />
         <option value="$PROJECT_DIR$/saved_data/inventory.xml" />
-        <option value="$PROJECT_DIR$/src/sample/mainScreen.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/newItem.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/newItemController.java" />
         <option value="$PROJECT_DIR$/src/sample/SingleItem.java" />
         <option value="$PROJECT_DIR$/src/sample/itemPopUp.fxml" />
         <option value="$PROJECT_DIR$/src/sample/dan.java" />
         <option value="$PROJECT_DIR$/src/sample/ItemPopUpController.java" />
+        <option value="$PROJECT_DIR$/src/sample/mainScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/newItem.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/newItemController.java" />
+        <option value="$PROJECT_DIR$/src/sample/Item.java" />
+        <option value="$PROJECT_DIR$/src/sample/mainScreenController.java" />
       </list>
     </option>
   </component>
@@ -281,7 +258,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="117" />
+    <option name="x" value="138" />
     <option name="y" value="23" />
     <option name="width" value="1208" />
     <option name="height" value="803" />
@@ -295,8 +272,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -335,6 +310,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -346,7 +323,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579016555438" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579123504867" />
     <property name="dynamic.classpath" value="false" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -454,16 +431,23 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
     </task>
+    <task id="LOCAL-00001" summary="add remove item">
+      <created>1579114621061</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579114621061</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="29" y="23" width="1208" height="803" extended-state="0" />
-    <editor active="true" />
+    <frame x="138" y="23" width="1208" height="803" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.31389365" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.31903946" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.3336192" />
       <window_info id="Designer" order="3" />
@@ -472,7 +456,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3277311" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3206751" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3206751" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39803094" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -484,7 +468,7 @@
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32911393" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32489452" />
-      <window_info anchor="bottom" id="Terminal" order="14" />
+      <window_info anchor="bottom" id="Terminal" order="14" weight="0.32911393" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -504,6 +488,8 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="add remove item" />
+    <option name="LAST_COMMIT_MESSAGE" value="add remove item" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -546,13 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saved_data/inventory.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1218" selection-start-column="1218" selection-end-column="1218" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/saved_data/current_item.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -564,39 +543,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/SingleItem.java" />
-    <entry file="file://$PROJECT_DIR$/src/sample/newItem.fxml">
+    <entry file="file://$PROJECT_DIR$/src/sample/dan.java" />
+    <entry file="file://$PROJECT_DIR$/src/sample/ItemPopUpController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="56" column="46" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        <state relative-caret-position="-55">
+          <caret line="35" column="58" lean-forward="true" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
+            <element signature="class#SingleItem#0;class#ItemPopUpController#0" />
+            <element signature="method#parseFileToArr#0;class#ItemPopUpController#0" />
+            <element signature="method#parseFileToDataList#0;class#ItemPopUpController#0" />
+            <element signature="method#removeButton#0;class#ItemPopUpController#0" />
+            <element signature="method#updateXML#0;class#ItemPopUpController#0" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/mainScreen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="82" lean-forward="true" selection-start-line="27" selection-start-column="82" selection-end-line="27" selection-end-column="82" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/itemPopUp.fxml">
       <provider selected="true" editor-type-id="text-editor">
@@ -606,56 +566,79 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/mainScreenController.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/newItem.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="134" column="4" selection-start-line="134" selection-start-column="4" selection-end-line="139" selection-end-column="5" />
-          <folding>
-            <element signature="method#initialize#0;class#mainScreenController#0" />
-            <element signature="method#onNewItem#0;class#mainScreenController#0" />
-            <element signature="method#onSearchItem#0;class#mainScreenController#0" />
-            <element signature="method#parseFileToArr#0;class#mainScreenController#0" />
-            <element signature="method#setItemArray#0;class#mainScreenController#0" />
-            <element signature="method#getFilter#0;class#mainScreenController#0" />
-            <element signature="method#filterArray#0;class#mainScreenController#0" />
-            <element signature="method#displayItems#0;class#mainScreenController#0" />
-            <element signature="method#handleClickListView#0;class#mainScreenController#0" />
-          </folding>
+        <state relative-caret-position="302">
+          <caret line="70" column="31" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/mainScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4">
+          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saved_data/inventory.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1125" selection-start-column="1125" selection-end-column="1125" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/dan.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        <state>
+          <caret column="15" lean-forward="true" selection-start-column="15" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/newItemController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="75" column="4" selection-start-line="75" selection-start-column="4" selection-end-line="165" selection-end-column="5" />
+        <state relative-caret-position="-356">
+          <caret line="115" column="25" lean-forward="true" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#onEnterData#0;class#newItemController#0" />
-            <element signature="method#createItem#0;class#newItemController#0" />
             <element signature="method#updateXML#0;class#newItemController#0" />
+            <element signature="e#7979#7980#0" expanded="true" />
+            <element signature="e#8010#8011#0" expanded="true" />
             <element signature="method#parseFileToArr#0;class#newItemController#0" />
             <element signature="method#setItemArray#0;class#newItemController#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/ItemPopUpController.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Item.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="44" column="1" lean-forward="true" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
+        <state relative-caret-position="-314">
+          <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
           <folding>
-            <element signature="class#SingleItem#0;class#ItemPopUpController#0" />
-            <element signature="method#parseFileToArr#0;class#ItemPopUpController#0" />
-            <element signature="method#parseFileToDataList#0;class#ItemPopUpController#0" />
-            <element signature="method#removeButton#0;class#ItemPopUpController#0" />
-            <element signature="method#updateXML#0;class#ItemPopUpController#0" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2538#2539#0" expanded="true" />
+            <element signature="e#2623#2624#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/mainScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
+          <folding>
+            <element signature="method#updateExpiryArray#0;class#mainScreenController#0" />
+            <element signature="method#onNewItem#0;class#mainScreenController#0" />
+            <element signature="method#parseFileToArr#0;class#mainScreenController#0" />
+            <element signature="method#setItemArray#0;class#mainScreenController#0" />
+            <element signature="method#getFilter#0;class#mainScreenController#0" />
+            <element signature="method#filterArray#0;class#mainScreenController#0" />
+            <element signature="method#displayItems#0;class#mainScreenController#0" />
+            <element signature="method#handleClickListView#0;class#mainScreenController#0" />
+            <element signature="method#saveCurrentItemXML#0;class#mainScreenController#0" />
+            <element signature="method#partition#0;class#mainScreenController#0" />
           </folding>
         </state>
       </provider>
@@ -725,6 +708,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

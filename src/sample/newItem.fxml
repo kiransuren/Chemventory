@@ -68,4 +68,6 @@
         <Button fx:id="backButton" onAction="#backToMain" text="Back"/>
     </HBox>
 
+    <Label fx:id="errorLabel"/>
+
 </VBox>

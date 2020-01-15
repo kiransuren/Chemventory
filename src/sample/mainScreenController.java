@@ -38,24 +38,51 @@ enum Filter{
     ID, TYPE, TITLE, USAGE, DEPTS
 }
 
+enum ListOutput{
+    normal, expiry, lowstock
+}
 public class mainScreenController {
 
     final int ITEM_PROPS = 11;
 
-    public ListView invListView;
+    public ListView invListView, expListView, lowListView;
     public TextField searchBar;
     public Button newItem;
     public ComboBox filterComboBox;
     ArrayList<Item> itemArr = new ArrayList<>();
     ArrayList<Item> filterArr = new ArrayList<>();
+    ArrayList<Item> expiryArr = new ArrayList<>();
+    ArrayList<Item> lowStockArr = new ArrayList<>();
 
 
     public void initialize(){
+        setItemArray(parseFileToArr());
+        itemArr = quickSort(itemArr, 0, itemArr.size()-1);
         ArrayList<String> clist = new ArrayList<>();                                                          //Create ArrayList with all filters
         Collections.addAll(clist,"Filter by ID", "Filter by TYPE", "Filter by TITLE", "Filter by USAGE/LABS", "Filter by DEPARTMENT");
         //Add filters to combo box
         for(int i=0; i <clist.size(); i++){
             filterComboBox.getItems().add(clist.get(i));
+        }
+        setItemArray(parseFileToArr());
+        updateExpiryArray();
+        displayItems(expiryArr, expListView, ListOutput.expiry);
+
+
+    }
+
+    public void updateExpiryArray(){
+        try{
+            for(int i=0; i<itemArr.size(); i++){
+                Item temp = itemArr.get(i);
+                if(!(temp.expiryDate.toLowerCase().equals("none"))){
+                    if(temp.isExpired() < 7){
+                        expiryArr.add(itemArr.get(i));
+                    }
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 
@@ -79,8 +106,9 @@ public class mainScreenController {
 
     public void onSearchItem(){
         setItemArray(parseFileToArr());
+        itemArr = quickSort(itemArr, 0, itemArr.size()-1);
         filterArr = filterArray(searchBar.getText().toLowerCase(), getFilter());
-        displayItems(filterArr);
+        displayItems(filterArr, invListView, ListOutput.normal);
     }
 
     public Item[] parseFileToArr(){
@@ -201,14 +229,28 @@ public class mainScreenController {
         return arr;
     }
 
-    public void displayItems(ArrayList<Item> arr){
+    public void displayItems(ArrayList<Item> arr, ListView listview, ListOutput lo ){
         /*
            Current usage: Show all Items in parsed arr on TextArea
          */
-        invListView.getItems().clear();                                     //Clear items from ListView
-        for(int i=0; i < arr.size(); i++){                                  //Loops through each entry in the array and creates a string with data from the i-th entry (concatenation)
-            String itemString = arr.get(i).getViewString();                 //Gets string of class data
-            invListView.getItems().add(itemString);
+        if(lo == ListOutput.normal) {
+            listview.getItems().clear();                                     //Clear items from ListView
+            for (int i = 0; i < arr.size(); i++) {                                  //Loops through each entry in the array and creates a string with data from the i-th entry (concatenation)
+                String itemString = arr.get(i).getViewString();                 //Gets string of class data
+                listview.getItems().add(itemString);
+            }
+        }else if(lo == ListOutput.expiry){
+            listview.getItems().clear();                                     //Clear items from ListView
+            for (int i = 0; i < arr.size(); i++) {                                  //Loops through each entry in the array and creates a string with data from the i-th entry (concatenation)
+                String itemString = arr.get(i).getExpiryString();                 //Gets string of class data
+                listview.getItems().add(itemString);
+            }
+        }else if(lo == ListOutput.lowstock){
+            listview.getItems().clear();                                     //Clear items from ListView
+            for (int i = 0; i < arr.size(); i++) {                                  //Loops through each entry in the array and creates a string with data from the i-th entry (concatenation)
+                String itemString = arr.get(i).getLowStockString();               //Gets string of class data
+                listview.getItems().add(itemString);
+            }
         }
 
     }
@@ -319,5 +361,33 @@ public class mainScreenController {
             e.printStackTrace();
         }
     }
+
+    public ArrayList<Item> quickSort(ArrayList<Item> itemInp, int start, int end){//start = 0. end = item.length-1
+        ArrayList<Item>sortedArr=itemInp;
+        if (start<end){
+            int p=partition(sortedArr,start,end);
+            quickSort(sortedArr,start,p-1);//Before (left)partition
+            quickSort(sortedArr,p+1,end);//After (right)partition
+        }
+        return sortedArr;
+
+    }
+
+    private static int partition(ArrayList<Item> itemInp, int start, int end){
+        int pivot = Integer.parseInt(itemInp.get(end).ID);//picks final value in array to make pivot
+        int i= start-1;//lower index then first
+        for(int j=start; j<end; j++){//goes through every element in array except for last (pivot)
+            if(Integer.parseInt(itemInp.get(j).ID)<pivot){//while element is smaller than pivot, swaps lower numbers with pivot
+                i++;
+                Item temp= itemInp.get(i);
+                itemInp.set(i,itemInp.get(j));
+                itemInp.set(j,temp);
+            }}
+        Item temp = itemInp.get(i+1);//Swaps higher numbers with pivot
+        itemInp.set(i+1,itemInp.get(end));
+        itemInp.set(end,temp);
+        return i+1;
+    }
+
 
 }
