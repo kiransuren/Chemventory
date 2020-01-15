@@ -31,7 +31,9 @@ public class Item {
   }
 
     public String getViewString(){
-        return title + " | " + ID + " | " + description + " | " + quantity;
+        //return "ID#" + ID + " Title: " + title + " Description: " + description + " Quantity: "+ quantity;
+        //return title + " | " + ID + " | " + description + " | " + quantity;
+        return "ID#" + ID + " Title: " + title + " Description: " + description + " Quantity: "+ quantity;
   }
 
 

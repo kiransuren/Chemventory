@@ -130,8 +130,8 @@ public class mainScreenController {
             //loop for each course in courses
             for(int i=0; i<items.getLength();i++){
                 Element tempElement = (Element)items.item(i);
-                System.out.println(tempElement.getTextContent());
-                System.out.println(i);
+                //System.out.println(tempElement.getTextContent());
+                //System.out.println(i);
                 //Fetch Entered Item Data from textfields
                 String id = tempElement.getElementsByTagName("id").item(0).getTextContent();
                 String type = tempElement.getElementsByTagName("type").item(0).getTextContent();
