@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /*
     TODO:
@@ -190,10 +191,20 @@ public class mainScreenController {
         ArrayList<Item> arr = new ArrayList<>();
         switch (filter){
             case ID:
-                for(int i=0; i < itemArr.size(); i++ ){
+                /*for(int i=0; i < itemArr.size(); i++ ){
                     if(itemArr.get(i).ID.toLowerCase().contains(search)){
                         arr.add(itemArr.get(i));
                     }
+                }*/
+                try{
+                    Item it = binarySearch(Integer.parseInt(search), itemArr);
+                    if(it != null){
+                        arr.add(it);
+                    }else{
+                        System.out.println("No item found");
+                    }
+                }catch (Exception e){
+
                 }
                 break;
             case TYPE:
@@ -387,6 +398,34 @@ public class mainScreenController {
         itemInp.set(i+1,itemInp.get(end));
         itemInp.set(end,temp);
         return i+1;
+    }
+
+    public Item binarySearch(int value, ArrayList<Item> d){
+        int half = (int) d.size()/2;
+
+        if(d.size()==1 && Integer.parseInt(d.get(half).ID) != value){
+            //When item cant be found
+            return null;
+        }
+        if(Integer.parseInt(d.get(half).ID) == value ){
+            //When the ID is the input value
+            return d.get(half);
+        }else if(Integer.parseInt(d.get(half).ID) < value){
+            //When the ID is less than the input value, repeat process with array starting from checked entry to end of current array
+            List s = d.subList(half,d.size() -1);
+            ArrayList<Item> listOfItems = new ArrayList<>(s.size());
+            listOfItems.addAll(s);
+            return binarySearch(value, listOfItems);
+        }else if(Integer.parseInt(d.get(half).ID)> value){
+            //When the ID is more than the input value, repeat process with array starting from start of current array to checked entry
+            List s = d.subList(0,half);
+            ArrayList<Item> listOfItems = new ArrayList<>(s.size());
+            listOfItems.addAll(s);
+            return binarySearch(value, listOfItems);
+        }else{
+            //For any other issue with the algorithm
+            return null;
+        }
     }
 
 
