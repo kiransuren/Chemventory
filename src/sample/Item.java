@@ -57,7 +57,6 @@ public class Item {
 
     public double isExpired() throws ParseException {
         //Calculate Expiration
-        String answer =" ";
         String expiryDate = this.expiryDate;
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date expiry = formatter.parse(expiryDate);

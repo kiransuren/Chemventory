@@ -44,7 +44,7 @@ enum ListOutput{
 }
 public class mainScreenController {
 
-    final int ITEM_PROPS = 11;
+    final int EXPIRY_VALUE = 183;                                  //DAYS
 
     public ListView invListView, expListView, lowListView;
     public TextField searchBar;
@@ -77,7 +77,7 @@ public class mainScreenController {
             for(int i=0; i<itemArr.size(); i++){
                 Item temp = itemArr.get(i);
                 if(!(temp.expiryDate.toLowerCase().equals("none"))){
-                    if(temp.isExpired() < 7){
+                    if(temp.isExpired() < EXPIRY_VALUE){
                         expiryArr.add(itemArr.get(i));
                     }
                 }
