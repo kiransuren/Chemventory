@@ -75,7 +75,7 @@ public class newItemController {
         String quantity = quanLabel.getText();
 
         if(!title.isEmpty()){
-            if(isValidID(id) && isValidExpiry(expiryDate)){
+            if((isValidID(id) && isValidExpiry(expiryDate)) && isValidQuantity(quantity)){
                 //Create temporary Item object and initialize properties
                 Item temp = new Item(id,type, title, description, notes, orderDate, expiryDate, acqDate, precautions, usage, departments, quantity);
                 itemArr.add(temp);
@@ -86,6 +86,9 @@ public class newItemController {
             }else if(!isValidExpiry(expiryDate)){
                 errorLabel.setText("Please enter the expiry date in the following format: dd/MM/yyyy | For no date type: none");
                 System.out.println("Please enter the expiry date in the following format: dd/MM/yyyy | For no date type: none");
+            }else if(!isValidQuantity(quantity)){
+                errorLabel.setText("Please enter a positive integer quantity | For no date type: none");
+                System.out.println("Please enter a positive integer quantity | For no date type: none");
             }
             else{
                 errorLabel.setText("Please enter valid data");
@@ -133,6 +136,18 @@ public class newItemController {
 
     }
 
+    public boolean isValidQuantity(String quan){
+        try{
+            if(quan.equals("none")){
+                return true;
+            }else{
+                Integer.parseInt(quan);
+                return true;
+            }
+        }catch (Exception e){
+            return false;
+        }
+    }
 
     public void updateXML(){
         try {

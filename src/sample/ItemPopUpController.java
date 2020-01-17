@@ -369,7 +369,7 @@ public class ItemPopUpController{
         String quantity = tableView.getItems().get(11).getValue();
 
         if(!title.isEmpty()){
-            if(isValidID(id) && isValidExpiry(expiryDate)){
+            if((isValidID(id) && isValidExpiry(expiryDate)) && isValidQuantity(quantity)){
                 //Create temporary Item object and initialize properties
                 for(int i=0; i<itemArr.size(); i++){
                     if(itemArr.get(i).ID.equals(curr_item.ID)){
@@ -379,12 +379,15 @@ public class ItemPopUpController{
                 Item temp = new Item(id,type, title, description, notes, orderDate, expiryDate, acqDate, precautions, usage, departments, quantity);
                 itemArr.add(temp);
                 return true;
-            } else if(!isValidID(id)){
+            }else if(!isValidID(id)){
                 errorLabel.setText("Please enter a unique integer for the ID value");
                 System.out.println("Please enter a unique integer for the ID value");
             }else if(!isValidExpiry(expiryDate)){
                 errorLabel.setText("Please enter the expiry date in the following format: dd/MM/yyyy | For no date type: none");
                 System.out.println("Please enter the expiry date in the following format: dd/MM/yyyy | For no date type: none");
+            }else if(!isValidQuantity(quantity)){
+                errorLabel.setText("Please enter a positive integer quantity | For no date type: none");
+                System.out.println("Please enter a positive integer quantity | For no date type: none");
             }
             else{
                 errorLabel.setText("Please enter valid data");
@@ -438,6 +441,19 @@ public class ItemPopUpController{
             }
         }
 
+    }
+
+    public boolean isValidQuantity(String quan){
+        try{
+            if(quan.equals("none")){
+                return true;
+            }else{
+                Integer.parseInt(quan);
+                return true;
+            }
+        }catch (Exception e){
+            return false;
+        }
     }
 
 }

@@ -45,6 +45,7 @@ enum ListOutput{
 public class mainScreenController {
 
     final int EXPIRY_VALUE = 183;                                  //DAYS
+    final int LOWSTOCK_VALUE = 5;                                  //DAYS
 
     public ListView invListView, expListView, lowListView;
     public TextField searchBar;
@@ -67,7 +68,9 @@ public class mainScreenController {
         }
         setItemArray(parseFileToArr());
         updateExpiryArray();
+        updateLowStockArray();
         displayItems(expiryArr, expListView, ListOutput.expiry);
+        displayItems(lowStockArr, lowListView, ListOutput.lowstock);
 
 
     }
@@ -84,6 +87,22 @@ public class mainScreenController {
             }
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+
+    public void updateLowStockArray(){
+        for(int i=0; i<itemArr.size(); i++){
+            Item temp = itemArr.get(i);
+            try {
+                if (!(temp.quantity.toLowerCase().equals("none"))) {
+                    if (Integer.parseInt(temp.quantity) < LOWSTOCK_VALUE) {
+                        lowStockArr.add(itemArr.get(i));
+                    }
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
