@@ -8,7 +8,7 @@
 
 #main-title{
     -fx-font-size: 32pt;
-    -fx-font-style: bold;
+    -fx-font-weight: bold;
     -fx-padding: 50px;
     /*-fx-effect: dropshadow(gaussian, black, 10, 0.5, 6, 2);*/
 }

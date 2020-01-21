@@ -1,5 +1,12 @@
+/**
+ * ItemPopUp Controller:
+ * Used with the ItemPopUp.fxml, when an item is clicked for full view in mainScreen
+ */
+
+
 package sample;
 
+//Imports
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,62 +43,72 @@ import java.util.ResourceBundle;
 
 public class ItemPopUpController{
 
+
+    //FXML References
     @FXML private TableView<SingleItem>tableView;
     @FXML private TableColumn<SingleItem, String>propColm;
     @FXML private TableColumn<SingleItem, String>infoColm;
     public Button backButton;
     public Label errorLabel;
-    public ObservableList<SingleItem> data;
-    public Item curr_item;
-    ArrayList<Item> itemArr = new ArrayList<>();
+
+    //Data Variables
+    public ObservableList<SingleItem> data;                 //Data to output on TableView
+    public Item curr_item;                                  //Currently viewing item
+    ArrayList<Item> itemArr = new ArrayList<>();            //Array that holds all items
 
     public void initialize(){
         parseFileToDataList();
         setItemArray(parseFileToArr());
-        propColm.setCellValueFactory(new PropertyValueFactory<>("attribute"));
-        infoColm.setCellValueFactory(new PropertyValueFactory<>("value"));
-        System.out.println("IS EDITABLE" + tableView.isEditable());
-        tableView.setItems(data);
-        tableView.getItems().get(0);
-        tableView.setEditable(true);
+        propColm.setCellValueFactory(new PropertyValueFactory<>("attribute"));      //Instantiate property column
+        infoColm.setCellValueFactory(new PropertyValueFactory<>("value"));          //Instantiate property column
+        tableView.setItems(data);                                                   //Set tableview to show data
+        //tableView.getItems().get(0);
+        tableView.setEditable(true);                                                 //Set tableview to show data
         infoColm.setCellFactory(TextFieldTableCell.forTableColumn());
-
     }
 
     public void onEditChanged(TableColumn.CellEditEvent<SingleItem, String> singleItemStringCellEditEvent) {
-        SingleItem singleItem = tableView.getSelectionModel().getSelectedItem();
-        singleItem.setValue(singleItemStringCellEditEvent.getNewValue());
+        /**
+         * Handles when TableView is edited
+         */
+        SingleItem singleItem = tableView.getSelectionModel().getSelectedItem();            //Gets reference to currently edited item
+        singleItem.setValue(singleItemStringCellEditEvent.getNewValue());                   //Changes value of cell to edited input
     }
 
     public static class SingleItem {
+        /**
+         * Class used in the tableview as the reference for that cell
+         */
 
+        //Properties
         public SimpleStringProperty attribute;
         public SimpleStringProperty value;
 
         public SingleItem(String attr, String val) {
-            this.attribute= new SimpleStringProperty(attr);
-            this.value= new SimpleStringProperty(val);
+            //Class Initializer
+            this.attribute = new SimpleStringProperty(attr);
+            this.value = new SimpleStringProperty(val);
         }
-
-        public String getAttribute() {
-            return attribute.get();
-        }
-
-        public void setAttribute(String attr) {
-            attribute.set(attr);
-        }
-
-        public String getValue() {
-            return value.get();
-        }
-
-        public void setValue(String val) {
-            value.set(val);
-        }
-
+            //Getters and Setters
+            public String getAttribute() {
+                return attribute.get();
+            }
+            public void setAttribute(String attr) {
+                attribute.set(attr);
+            }
+            public String getValue() {
+                return value.get();
+            }
+            public void setValue(String val) {
+                value.set(val);
+            }
     }
 
     public Item[] parseFileToArr(){
+        /**
+         * Parses inventory.xml file to an Item array format
+         */
+
         //Creating new document for DOM manipulation
         String filePath = "saved_data/inventory.xml";
         File xmlFile = new File(filePath);                                              //Reference to file at path
@@ -109,10 +126,8 @@ public class ItemPopUpController{
             //loop for each course in courses
             for(int i=0; i<items.getLength();i++){
                 Element tempElement = (Element)items.item(i);
-                System.out.println(tempElement.getTextContent());
-                System.out.println(i);
                 //Fetch Entered Item Data from textfields
-                String id = tempElement.getElementsByTagName("id").item(0).getTextContent();
+                int id = Integer.parseInt(tempElement.getElementsByTagName("id").item(0).getTextContent());
                 String type = tempElement.getElementsByTagName("type").item(0).getTextContent();
                 String title = tempElement.getElementsByTagName("title").item(0).getTextContent();
                 String description = tempElement.getElementsByTagName("description").item(0).getTextContent();
@@ -130,17 +145,18 @@ public class ItemPopUpController{
                 outArr[i] = temp;
             }
             return outArr;
-
         }catch (SAXException | ParserConfigurationException | IOException e1){
             e1.printStackTrace();
         }
-
         return null;
 
 
     }
 
     public void setItemArray(Item[] arr){
+        /**
+         * Copies values from passed in Item[] array to itemArr ArrayList
+         */
         resetLocalArray();
         for(int i=0; i<arr.length; i++){
             itemArr.add(arr[i]);
@@ -148,10 +164,17 @@ public class ItemPopUpController{
     }
 
     public void resetLocalArray(){
+        /**
+         * Clears itemArr ArrayList
+         */
         itemArr.clear();
     }
 
     public void parseFileToDataList(){
+        /**
+         * Parses saved_data.xml file to an Item format
+         */
+
         //Creating new document for DOM manipulation
         String filePath = "saved_data/current_item.xml";
         File xmlFile = new File(filePath);                                              //Reference to file at path
@@ -168,10 +191,8 @@ public class ItemPopUpController{
             //loop for each course in courses
             for(int i=0; i<items.getLength();i++){
                 Element tempElement = (Element)items.item(i);
-                System.out.println(tempElement.getTextContent());
-                System.out.println(i);
                 //Fetch Entered Item Data from textfields
-                String id = tempElement.getElementsByTagName("id").item(0).getTextContent();
+                int id = Integer.parseInt(tempElement.getElementsByTagName("id").item(0).getTextContent());
                 String type = tempElement.getElementsByTagName("type").item(0).getTextContent();
                 String title = tempElement.getElementsByTagName("title").item(0).getTextContent();
                 String description = tempElement.getElementsByTagName("description").item(0).getTextContent();
@@ -186,9 +207,9 @@ public class ItemPopUpController{
 
                 //Create temporary Item object and initialize properties
                 curr_item = new Item(id,type, title, description, notes, orderDate, expiryDate, acqDate, precautions, usage, departments, quantity);
-                System.out.println("TEMP ITEM CREATED" + curr_item.title);
+                //Sets data to take properties of current item
                 data = FXCollections.observableArrayList(
-                        new SingleItem("ID", curr_item.ID),
+                        new SingleItem("ID", Integer.toString(curr_item.ID)),
                         new SingleItem("Type", curr_item.type),
                         new SingleItem("Title", curr_item.title),
                         new SingleItem("Description", curr_item.description),
@@ -202,13 +223,6 @@ public class ItemPopUpController{
                         new SingleItem("Quantity", curr_item.quantity)
                 );
             }
-
-            System.out.println("DATA USING GET:");
-            System.out.println(data.get(2).getValue());
-            System.out.println("DATA USING PROP:");
-            System.out.println(data.get(2).value);
-
-
         }catch (SAXException | ParserConfigurationException | IOException e1) {
             e1.printStackTrace();
         }
@@ -216,105 +230,120 @@ public class ItemPopUpController{
     }
 
     public void removeButton(){
+        /**
+         * Removes item from itemArr and updates XML file to remove item
+         */
+
+        //Loop through itemArr
         for(int i=0; i<itemArr.size(); i++){
-            System.out.println("Curr_item id" + curr_item.ID);
-            System.out.println("Item array" + itemArr.get(i).ID);
-            if(itemArr.get(i).ID.equals(curr_item.ID)){
-                System.out.println(itemArr.get(i).title);
+            //If the current item id is the same as the item in itemArr
+            if(itemArr.get(i).ID == curr_item.ID){
+                //Remove from itemArr
                 itemArr.remove(i);
                 break;
             }
         }
         updateXML();
         backToMain();
-
     }
 
     public void updateXML(){
+        /**
+         * Updates XML file by deleted file then adding data from itemArr ArrayList
+         */
         try {
             try{
-
                 File file = new File("saved_data/inventory.xml");
-
+                //Delete xml file
                 if(file.delete()){
-                    System.out.println(file.getName() + " is deleted!");
                 }else{
-                    System.out.println("Delete operation is failed.");
                 }
-
             }catch(Exception e){
-
                 e.printStackTrace();
-
             }
 
+            //Create a new XML document with items root
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.newDocument();
             Element rootElement = doc.createElement("items");
             doc.appendChild(rootElement);
 
+            //For each item in itemArr, create an XML object and include properties
             for(int i=0; i<itemArr.size(); i++){
+                //Create item tag
                 Element item = doc.createElement("item");
 
+                //Add ID property to item element
                 Element id = doc.createElement("id");
-                id.setTextContent(itemArr.get(i).ID);
+                id.setTextContent(Integer.toString(itemArr.get(i).ID));
                 item.appendChild(id);
 
-
+                //Add type property to item element
                 Element type = doc.createElement("type");
                 type.setTextContent(itemArr.get(i).type);
                 item.appendChild(type);
 
+                //Add title property to item element
                 Element title = doc.createElement("title");
                 title.setTextContent(itemArr.get(i).title);
                 item.appendChild(title);
 
+                //Add description property to item element
                 Element description = doc.createElement("description");
                 description.setTextContent(itemArr.get(i).description);
                 item.appendChild(description);
 
+                //Add notes property to item element
                 Element notes = doc.createElement("notes");
                 notes.setTextContent(itemArr.get(i).notes);
                 item.appendChild(notes);
 
+                //Add orderDate property to item element
                 Element orderDate = doc.createElement("orderDate");
                 orderDate.setTextContent(itemArr.get(i).dateOrdered);
                 item.appendChild(orderDate);
 
+                //Add expiryDate property to item element
                 Element expiryDate = doc.createElement("expiryDate");
                 expiryDate.setTextContent(itemArr.get(i).expiryDate);
                 item.appendChild(expiryDate);
 
+                //Add acqDate property to item element
                 Element acqDate = doc.createElement("acqDate");
                 acqDate.setTextContent(itemArr.get(i).dateAcq);
                 item.appendChild(acqDate);
 
+                //Add precautions property to item element
                 Element precautions = doc.createElement("precautions");
                 precautions.setTextContent(itemArr.get(i).prec);
                 item.appendChild(precautions);
 
+                //Add usage property to item element
                 Element usage = doc.createElement("usage");
                 usage.setTextContent(itemArr.get(i).usage);
                 item.appendChild(usage);
 
+                //Add departments property to item element
                 Element departments = doc.createElement("departments");
                 departments.setTextContent(itemArr.get(i).dept);
                 item.appendChild(departments);
 
+                //Add quantity property to item element
                 Element quantity = doc.createElement("quantity");
                 quantity.setTextContent(itemArr.get(i).quantity);
                 item.appendChild(quantity);
 
 
+                //Add item to the root object
                 rootElement.appendChild(item);
 
+                //Write data to XML file
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
                 Transformer transformer = transformerFactory.newTransformer();
                 DOMSource source = new DOMSource(doc);
                 StreamResult result = new StreamResult(new File("saved_data/inventory.xml"));
                 transformer.transform(source, result);
-
             }
 
         }catch (Exception e){
@@ -323,14 +352,13 @@ public class ItemPopUpController{
     }
 
     public void backToMain(){
-        //Check if unique id or id is same as current item
-        //Check if expiry date is valid and title is valid
-        //Delete current item from the total array
-        //Add new item to array
-        //Write array to xml
-        boolean success = createItem();
+        /**
+         * Saves changes and return to mainScreen
+         */
+
+        boolean success = createItem();         //Create new Item from cells, return success
         if(success) {
-            updateXML();
+            updateXML();                        //Update XML file with new data
             try {
                 Stage stage = (Stage) backButton.getScene().getWindow();                          //Get current scene and window
                 Parent root = FXMLLoader.load(getClass().getResource("mainScreen.fxml"));      //Set root to newItem.fxml
@@ -347,17 +375,14 @@ public class ItemPopUpController{
     }
 
     public boolean createItem(){
-        /*
-          Fetch item data from textfields and add new item to itemArr array
+        /**
+          Fetch item data from cells and add new item to itemArr array
         */
 
-        //Fetch Entered Item Data from textfields
-        /*String id = Integer.toString(Integer.parseInt(idLabel.getText()))*/
-
-
+        //Fetch Entered Item Data from cells
         String id = tableView.getItems().get(0).getValue();                             //YES
         String type = tableView.getItems().get(1).getValue();
-        String title = tableView.getItems().get(2).getValue();                 //YES
+        String title = tableView.getItems().get(2).getValue();
         String description = tableView.getItems().get(3).getValue();
         String notes = tableView.getItems().get(4).getValue();
         String orderDate = tableView.getItems().get(5).getValue();
@@ -369,74 +394,82 @@ public class ItemPopUpController{
         String quantity = tableView.getItems().get(11).getValue();
 
         if(!title.isEmpty()){
+            //Goes through id, expiry and quantity validity checks
             if((isValidID(id) && isValidExpiry(expiryDate)) && isValidQuantity(quantity)){
                 //Create temporary Item object and initialize properties
                 for(int i=0; i<itemArr.size(); i++){
-                    if(itemArr.get(i).ID.equals(curr_item.ID)){
+                    if(itemArr.get(i).ID == curr_item.ID){
                         itemArr.remove(i);
                     }
                 }
-                Item temp = new Item(id,type, title, description, notes, orderDate, expiryDate, acqDate, precautions, usage, departments, quantity);
+                Item temp = new Item(Integer.parseInt(id),type, title, description, notes, orderDate, expiryDate, acqDate, precautions, usage, departments, quantity);
                 itemArr.add(temp);
                 return true;
             }else if(!isValidID(id)){
+                //Invalid id
                 errorLabel.setText("Please enter a unique integer for the ID value");
-                System.out.println("Please enter a unique integer for the ID value");
             }else if(!isValidExpiry(expiryDate)){
+                //Invalid expiry date
                 errorLabel.setText("Please enter the expiry date in the following format: dd/MM/yyyy | For no date type: none");
-                System.out.println("Please enter the expiry date in the following format: dd/MM/yyyy | For no date type: none");
             }else if(!isValidQuantity(quantity)){
+                //Invalid quantity
                 errorLabel.setText("Please enter a positive integer quantity | For no date type: none");
-                System.out.println("Please enter a positive integer quantity | For no date type: none");
             }
             else{
+                //Invalid for all
                 errorLabel.setText("Please enter valid data");
             }
             return false;
         }else{
+            //No title present
             errorLabel.setText("Please enter a title for the item");
             return false;
         }
     }
 
-
     public boolean isValidID(String id){
+        /**
+         * Checks if ID is a positive integer and has not already been taken
+         */
         try {
-            int newID = Integer.parseInt(id);
-            if(newID >=0){
+            int newId = Integer.parseInt(id);
+            //Postive integer
+            if(newId >=0){
                 for (int i = 0; i < itemArr.size(); i++) {
-                    if (itemArr.get(i).ID.equals(id)) {
-                        if(itemArr.get(i).ID.equals(curr_item.ID)){
-                            System.out.println("SAME ID");
+                    //If ID has already been taken
+                    if (itemArr.get(i).ID == newId) {
+                        //If id is the same as the current item being viewed (it is ok to take this, as it is the original value)
+                        if(itemArr.get(i).ID == curr_item.ID){
                             return true;
                         }else{
-                            System.out.println("NOT VALID ID");
-                            System.out.println(curr_item.ID);
-                            System.out.println(itemArr.get(i));
                             return false;
                         }
                     }
                 }
             }else{
-                System.out.println("NOT VALID ID");
                 return false;
             }
         }catch (Exception e){
-            System.out.println("NOT VALID ID");
             return false;
         }
         return true;
     }
 
     public boolean isValidExpiry(String expiryDate){
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        /**
+         * Checks if expiry date is either in the "dd//MM/yyy" format or has a "none" string value
+         */
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");            //format for strings
+        //If expiry date is "none" string
         if(expiryDate.equals("none")){
             return true;
         }else{
             try{
+                //Try to format string
                 Date expiry = formatter.parse(expiryDate);
                 return true;
             }catch (Exception e){
+                //when there is an error (catch when parsing the formatted string)
                 return false;
             }
         }
@@ -444,14 +477,20 @@ public class ItemPopUpController{
     }
 
     public boolean isValidQuantity(String quan){
+        /**
+         * Checks if quantity is a positive integer or "none" string
+         */
         try{
             if(quan.equals("none")){
+                //If quantity is "none" string
                 return true;
             }else{
+                //Try to parse quantity as string
                 Integer.parseInt(quan);
                 return true;
             }
         }catch (Exception e){
+            //when there is an error (catch when parsing string to integer)
             return false;
         }
     }
