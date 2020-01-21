@@ -7,26 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="add remove item">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Chemventory.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/Filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chemventory/sample/Filter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chemventory/sample/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/ItemPopUpController$SingleItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chemventory/sample/ItemPopUpController$SingleItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/ItemPopUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chemventory/sample/ItemPopUpController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/ListOutput.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chemventory/sample/ListOutput.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/itemPopUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chemventory/sample/itemPopUp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/mainScreenController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chemventory/sample/mainScreenController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/mainScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chemventory/sample/mainScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/newItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chemventory/sample/newItemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chemventory/sample/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saved_data/current_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/saved_data/current_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saved_data/inventory.xml" beforeDir="false" afterPath="$PROJECT_DIR$/saved_data/inventory.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ItemPopUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ItemPopUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/itemPopUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/itemPopUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chemventory/sample/inventory.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/mainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/mainScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/newItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/newItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/style.css" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,14 +77,14 @@
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="5" />
           <entry key="project.open.time.16" value="2" />
-          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -109,7 +92,7 @@
           <entry key="css" value="216" />
           <entry key="dummy" value="21" />
           <entry key="fxml" value="1521" />
-          <entry key="java" value="19077" />
+          <entry key="java" value="19088" />
           <entry key="txt" value="15" />
           <entry key="xml" value="351" />
         </counts>
@@ -117,7 +100,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="216" />
-          <entry key="JAVA" value="19077" />
+          <entry key="JAVA" value="19088" />
           <entry key="PLAIN_TEXT" value="36" />
           <entry key="XML" value="1872" />
         </counts>
@@ -150,8 +133,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/mainScreenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-429">
-              <caret line="174" column="33" lean-forward="true" selection-start-line="174" selection-start-column="33" selection-end-line="174" selection-end-column="33" />
+            <state relative-caret-position="150">
+              <caret line="179" column="91" selection-start-line="179" selection-start-column="91" selection-end-line="179" selection-end-column="91" />
               <folding>
                 <element signature="class#Filter#0" />
                 <element signature="class#ListOutput#0" />
@@ -176,15 +159,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/inventory.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/ItemPopUpController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="165" selection-start-line="165" selection-end-line="170" selection-end-column="5" />
+            <state relative-caret-position="318">
+              <caret line="155" column="40" lean-forward="true" selection-start-line="155" selection-start-column="40" selection-end-line="155" selection-end-column="40" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="method#initialize#0;class#ItemPopUpController#0" />
@@ -199,7 +177,6 @@
                 <element signature="e#3829#3830#0" expanded="true" />
                 <element signature="e#3875#3876#0" expanded="true" />
                 <element signature="method#parseFileToArr#0;class#ItemPopUpController#0" />
-                <element signature="method#setItemArray#0;class#ItemPopUpController#0" />
                 <element signature="method#resetLocalArray#0;class#ItemPopUpController#0" />
                 <element signature="method#parseFileToDataList#0;class#ItemPopUpController#0" />
                 <element signature="method#removeButton#0;class#ItemPopUpController#0" />
@@ -292,8 +269,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="215" />
-    <option name="y" value="23" />
+    <option name="x" value="417" />
+    <option name="y" value="91" />
     <option name="width" value="1113" />
     <option name="height" value="775" />
   </component>
@@ -306,6 +283,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -355,8 +334,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -368,7 +345,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579498409512" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579566141307" />
     <property name="dynamic.classpath" value="false" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -493,10 +470,10 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="163" y="23" width="1113" height="775" extended-state="0" />
+    <frame x="417" y="91" width="1113" height="775" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2875817" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.29318395" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.3336192" />
       <window_info id="Designer" order="3" />
@@ -505,7 +482,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3277311" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32064423" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32064423" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39803094" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -629,12 +606,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/newItem.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
           <caret line="70" column="31" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/style.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -644,20 +621,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/itemPopUp.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/mainScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Item.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -667,45 +644,6 @@
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/ItemPopUpController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="165" selection-start-line="165" selection-end-line="170" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="method#initialize#0;class#ItemPopUpController#0" />
-            <element signature="method#onEditChanged#0;class#ItemPopUpController#0" />
-            <element signature="class#SingleItem#0;class#ItemPopUpController#0" />
-            <element signature="e#3536#3537#0" expanded="true" />
-            <element signature="e#3590#3591#0" expanded="true" />
-            <element signature="e#3642#3643#0" expanded="true" />
-            <element signature="e#3693#3694#0" expanded="true" />
-            <element signature="e#3732#3733#0" expanded="true" />
-            <element signature="e#3782#3783#0" expanded="true" />
-            <element signature="e#3829#3830#0" expanded="true" />
-            <element signature="e#3875#3876#0" expanded="true" />
-            <element signature="method#parseFileToArr#0;class#ItemPopUpController#0" />
-            <element signature="method#setItemArray#0;class#ItemPopUpController#0" />
-            <element signature="method#resetLocalArray#0;class#ItemPopUpController#0" />
-            <element signature="method#parseFileToDataList#0;class#ItemPopUpController#0" />
-            <element signature="method#removeButton#0;class#ItemPopUpController#0" />
-            <element signature="method#updateXML#0;class#ItemPopUpController#0" />
-            <element signature="method#backToMain#0;class#ItemPopUpController#0" />
-            <element signature="method#createItem#0;class#ItemPopUpController#0" />
-            <element signature="method#isValidID#0;class#ItemPopUpController#0" />
-            <element signature="method#isValidExpiry#0;class#ItemPopUpController#0" />
-            <element signature="method#isValidQuantity#0;class#ItemPopUpController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
@@ -730,10 +668,48 @@
     <entry file="file://$PROJECT_DIR$/src/sample/inventory.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/ItemPopUpController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="155" column="40" lean-forward="true" selection-start-line="155" selection-start-column="40" selection-end-line="155" selection-end-column="40" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="method#initialize#0;class#ItemPopUpController#0" />
+            <element signature="method#onEditChanged#0;class#ItemPopUpController#0" />
+            <element signature="class#SingleItem#0;class#ItemPopUpController#0" />
+            <element signature="e#3536#3537#0" expanded="true" />
+            <element signature="e#3590#3591#0" expanded="true" />
+            <element signature="e#3642#3643#0" expanded="true" />
+            <element signature="e#3693#3694#0" expanded="true" />
+            <element signature="e#3732#3733#0" expanded="true" />
+            <element signature="e#3782#3783#0" expanded="true" />
+            <element signature="e#3829#3830#0" expanded="true" />
+            <element signature="e#3875#3876#0" expanded="true" />
+            <element signature="method#parseFileToArr#0;class#ItemPopUpController#0" />
+            <element signature="method#resetLocalArray#0;class#ItemPopUpController#0" />
+            <element signature="method#parseFileToDataList#0;class#ItemPopUpController#0" />
+            <element signature="method#removeButton#0;class#ItemPopUpController#0" />
+            <element signature="method#updateXML#0;class#ItemPopUpController#0" />
+            <element signature="method#backToMain#0;class#ItemPopUpController#0" />
+            <element signature="method#createItem#0;class#ItemPopUpController#0" />
+            <element signature="method#isValidID#0;class#ItemPopUpController#0" />
+            <element signature="method#isValidExpiry#0;class#ItemPopUpController#0" />
+            <element signature="method#isValidQuantity#0;class#ItemPopUpController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/mainScreenController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-429">
-          <caret line="174" column="33" lean-forward="true" selection-start-line="174" selection-start-column="33" selection-end-line="174" selection-end-column="33" />
+        <state relative-caret-position="150">
+          <caret line="179" column="91" selection-start-line="179" selection-start-column="91" selection-end-line="179" selection-end-column="91" />
           <folding>
             <element signature="class#Filter#0" />
             <element signature="class#ListOutput#0" />

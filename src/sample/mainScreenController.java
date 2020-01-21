@@ -170,17 +170,14 @@ public class mainScreenController {
          */
 
         //Creating new document for DOM manipulation
-        //String filePath = "./saved_data/inventory.xml";
-        String filePath = "inventory.xml";
-        InputStream is = this.getClass().getClassLoader().getResourceAsStream(filePath);
-        //File xmlFile = new File(filePath);                                              //Reference to file at path
+        String filePath = "./saved_data/inventory.xml";
+        File xmlFile = new File(filePath);                                              //Reference to file at path
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder;
 
         try {
             dBuilder = dbFactory.newDocumentBuilder();      //Making new document builder
-            Document doc = dBuilder.parse(is);         //Assigning doc to file at path
-            //Document doc = dBuilder.parse(is);
+            Document doc = dBuilder.parse(xmlFile);         //Assigning doc to file at path
             doc.getDocumentElement().normalize();           //Normalize doc
 
             NodeList items = doc.getElementsByTagName("item");      //Get all course elements and store in nodelist
