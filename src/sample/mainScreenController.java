@@ -8,10 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -64,6 +61,7 @@ public class mainScreenController {
     public TextField searchBar;
     public Button newItem;
     public ComboBox filterComboBox;
+    public Label errorLabel;
 
     //Arrays holding items
     ArrayList<Item> itemArr = new ArrayList<>();                    //Holds all items
@@ -249,6 +247,7 @@ public class mainScreenController {
         /**
          * Returns filtered ArrayList by search keyword and filter type
          */
+        resetError();
         ArrayList<Item> arr = new ArrayList<>();        //Create output array
         switch (filter){
             //Filter by ID
@@ -259,11 +258,12 @@ public class mainScreenController {
                         //If the item was found add to array
                         arr.add(it);
                     }else{
-                        System.out.println("No item found, none in array");
+                        errorLabel.setText("Sorry, no item found");
+                        //System.out.println("No item found, none in array");
                     }
                 }catch (Exception e){
-                    e.printStackTrace();
-                    System.out.println("No item found, exceptional error");
+                    errorLabel.setText("Sorry, no item found");
+                    //System.out.println("No item found, exceptional error");
                 }
                 break;
             //Filter by type
@@ -367,7 +367,7 @@ public class mainScreenController {
                 File file = new File("saved_data/current_item.xml");
                 if(file.delete()){
                     //Delete file
-                    System.out.println(file.getName() + " is deleted!");
+                    //System.out.println(file.getName() + " is deleted!");
                 }
             }catch(Exception e){
                 e.printStackTrace();
@@ -482,11 +482,10 @@ public class mainScreenController {
 
     public Item binarySearch(int value, ArrayList<Item> d){
         int half =d.size()/2;
-        System.out.print(half);
 
         if(d.size()==1 && d.get(half).ID != value){
             //When item cant be found
-            System.out.print("Item cannot be found");
+            errorLabel.setText("Sorry, no item found");
             return null;
         }
         if(d.get(half).ID == value ){
@@ -506,9 +505,13 @@ public class mainScreenController {
             return binarySearch(value, listOfItems);
         }else{
             //For any other issue with the algorithm
-            System.out.print("other issue");
+            errorLabel.setText("Sorry, no item found");
             return null;
         }
+    }
+
+    public void resetError(){
+        errorLabel.setText("");
     }
 
 

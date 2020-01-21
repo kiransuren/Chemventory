@@ -23,24 +23,24 @@
         </HBox>
 
         <HBox spacing="100" alignment="CENTER">
-            <!--Tutor ListView Search Results-->
+            <!--Main Inventory ListView-->
             <VBox fx:id="listViewVBox" alignment="CENTER" spacing="10">
                 <ListView fx:id="invListView" minWidth="700" id="list-v" onMouseClicked="#handleClickListView"/>
                 <Button text="Add a new item" onAction="#onNewItem" fx:id="newItem" />
             </VBox>
 
             <VBox spacing="100">
-                <!--Tutor ListView Search Results-->
+                <!--Expiry Box ListView-->
                 <VBox alignment="CENTER" spacing="10">
                     <Label text="Items Expiring Soon: "/>
                     <ListView fx:id="expListView" maxWidth="300" prefHeight="100" id="list-v"/>
                 </VBox>
-                <!--Tutor ListView Search Results-->
+                <!--Low Stock ListView-->
                 <VBox alignment="CENTER" spacing="10">
                     <Label text="Items in low stock: "/>
                     <ListView fx:id="lowListView" maxWidth="300" prefHeight="100" id="list-v"/>
                 </VBox>
-
+                <Label fx:id="errorLabel" />
             </VBox>
 
         </HBox>

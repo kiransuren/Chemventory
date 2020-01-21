@@ -139,12 +139,14 @@ public class newItemController {
          * Checks if expiry date is either in the "dd//MM/yyy" format or has a "none" string value
          */
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");            //format for strings
+        formatter.setLenient(false);
         //If expiry date is "none" string
         if(expiryDate.equals("none")){
             return true;
         }else{
             try{
                 //Try to format string
+                formatter.setLenient(false);
                 Date expiry = formatter.parse(expiryDate);
                 return true;
             }catch (Exception e){
@@ -307,8 +309,6 @@ public class newItemController {
             //loop for each course in courses
             for(int i=0; i<items.getLength();i++){
                 Element tempElement = (Element)items.item(i);
-                System.out.println(tempElement.getTextContent());
-                System.out.println(i);
                 //Fetch Entered Item Data from textfields
                 int id = Integer.parseInt(tempElement.getElementsByTagName("id").item(0).getTextContent());
                 String type = tempElement.getElementsByTagName("type").item(0).getTextContent();

@@ -460,6 +460,7 @@ public class ItemPopUpController{
          * Checks if expiry date is either in the "dd//MM/yyy" format or has a "none" string value
          */
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");            //format for strings
+        formatter.setLenient(false);
         //If expiry date is "none" string
         if(expiryDate.equals("none")){
             return true;
